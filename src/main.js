@@ -9,10 +9,16 @@ import header from './pages/common/Header.vue'
 import footer from './pages/common/Footer.vue'
 import carousel from './pages/common/Carousel.vue'
 import '@/assets/css/iconfont.css'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.prototype.$http = axios
+Vue.prototype.$ajax = axios
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+Vue.use(VueAxios, axios)
 Vue.component('my-header', header)
 Vue.component('my-footer', footer)
 Vue.component('my-carousel', carousel)

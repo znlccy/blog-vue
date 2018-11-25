@@ -7,6 +7,7 @@ import About from '@/pages/us/About'
 import Contact from '@/pages/us/Contact'
 import Login from '@/pages/user/Login'
 import Registered from '@/pages/user/Registered'
+import Forget from '@/pages/user/Forget'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/user/registered',
       name: '用户注册',
       component: Registered
+    },
+    {
+      path: '/user/forget',
+      name: '忘记密码',
+      component: Forget
     }
   ]
 })

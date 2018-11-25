@@ -1,5 +1,7 @@
 <template>
-    
+  <div id="forget">
+
+  </div>
 </template>
 
 <script>

@@ -2,7 +2,7 @@
   <div id="login">
     <div id="login-header">
       <div class="left">
-        <img src="../../assets/logo.png" width="40%" height="96%" alt="">
+        <img src="../../assets/images/blogger.png" width="64px" style="margin: 10px auto" height="64px" alt="">
       </div>
     </div>
     <div id="login-content">
@@ -10,15 +10,15 @@
         <h4>密码登录</h4>
         <el-form>
           <div class="el-form--label-top">
-            <el-input prefix-icon="el-icon-date" id="username" style="float: right;width: 80%;margin: 0px 10%"></el-input>
+            <el-input prefix-icon="el-icon-date" type="text" v-model="username" id="username" style="float: right;width: 80%;margin: 0px 10%"></el-input>
           </div>
           <div class="el-form--label-top">
-            <el-input id="password" prefix-icon="el-icon-search" style="float: right;width: 80%;margin: 15px 10%"></el-input>
+            <el-input id="password" type="password" prefix-icon="el-icon-search" v-model="password" style="float: right;width: 80%;margin: 15px 10%"></el-input>
           </div>
-          <el-button type="primary"  id="login-btn" round >登录</el-button>
+          <el-button type="primary"  id="login-btn" round @click="login">登录</el-button>
           <p>
-            <a href="">忘记密码</a>
-            <a href="">免费注册</a>
+            <router-link to="/user/forget" style="text-decoration: none; font-size: 14px">忘记密码</router-link>
+            <router-link to="/user/registered" style="text-decoration: none; font-size: 14px">免费注册</router-link>
           </p>
         </el-form>
       </div>
@@ -35,7 +35,29 @@
 
 <script>
     export default {
-        name: "Login"
+      name: "Login",
+      data() {
+          return {
+            username: '',
+            password: ''
+          };
+      },
+      methods: {
+        login: function() {
+          let self = this;
+          let sendData = {};
+          sendData.username = this.username;
+          sendData.password = this.password;
+          let sendJson = JSON.stringify(sendData);
+          console.log(sendJson);
+          /*this.$http({
+            method: 'post',
+            url: 'http://technology.fh.81youxi.com/index/user/login',
+            crossDomain: true,
+            data: sendJson
+          });*/
+        }
+      }
     }
 </script>
 
@@ -51,6 +73,10 @@
     width: 23%;
     background-color: #fff;
     height: 100%;
+  }
+
+  img {
+    margin: auto 5px;
   }
 
   #login-header .right {
